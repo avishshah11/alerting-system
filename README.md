@@ -17,14 +17,20 @@ To set up the backend of the application, follow these steps:
    ```
    $ cd backend
    ```
+   
+2. **Create an .env file in root**
 
-2. **Install Dependencies**
+   ```
+   touch .env
+   ```
+   
+3. **Install Dependencies**
    
    ```
    $ npm install
    ```
 
-3. **Start the Server**
+4. **Start the Server**
  
    ```
    $ npm run dev
