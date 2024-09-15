@@ -50,7 +50,7 @@ const Sidebar = ({ open, onClose }) => {
                         width: drawerWidth,
                         boxSizing: 'border-box',
                         backgroundColor: theme.palette.background.paper,
-                        color: theme.palette.text.primary
+                        color: theme.palette.text.primary,
                     }
                 }}
             >
