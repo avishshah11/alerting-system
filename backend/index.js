@@ -22,12 +22,12 @@ app.get('/', (req, res) => {
 app.use('/api', alertRoutes);
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => {
-    console.log("Connection established")
-    app.listen(port, () => {
-        console.log(`server running on http://localhost:${port}/`)
+    .then(() => {
+        console.log("Connection established")
+        app.listen(port, () => {
+            console.log(`server running on http://localhost:${port}/`)
+        })
     })
-})
-.catch((error) => {
-    console.log("Connection failed", error)
-})
+    .catch((error) => {
+        console.log("Connection failed", error)
+    })
