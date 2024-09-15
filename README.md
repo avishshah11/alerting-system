@@ -52,5 +52,15 @@ To set up the frontend of the application, follow these steps:
    $ npm start
    ```  
 
+## Alerts List page
+
+![image](https://github.com/user-attachments/assets/6d2e83c1-d1d8-49e4-81d0-b3a27b1c83e1)
+
+## Create Alerts page
+
+![image](https://github.com/user-attachments/assets/2ba94c67-a569-47da-842e-6ae5d6a9ce56)
+![image](https://github.com/user-attachments/assets/0041b942-ca5b-4128-9824-e660ed72a4cd)
+
+
    
 
