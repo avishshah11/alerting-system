@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Typography,
@@ -39,14 +39,39 @@ const SubmitButton = styled(Button)(({ theme }) => ({
 const CreateAlerts = () => {
   const [message, setMessage] = useState("");
   const [severity, setSeverity] = useState("");
+  const [ip, setIp] = useState("");
   const [errors, setErrors] = useState({ message: "", severity: "" });
   const [loading, setLoading] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [open, setOpen] = useState(false);
-  
+
+  useEffect(() => {
+    getIpfunction()
+  }, [loading])
+
+  const getIpfunction = async () => {
+
+    let publicIp = 'https://api.ipify.org';
+
+    try {
+      const response = await fetch(publicIp, {
+        method: 'GET'
+      })
+
+      const ipResult = await response.text()
+
+      setIp(ipResult)
+
+    } catch (error) {
+      throw error
+    }
+  };
+
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
 
     setErrors({
       alertMessage: "",
@@ -68,8 +93,8 @@ const CreateAlerts = () => {
       setLoading(true)
 
       try {
-        const result = await postAlerts({ message, severity })
-        if (result){
+        const result = await postAlerts({ message, severity, ip })
+        if (result) {
           setOpen(true)
           setSnackbarMessage('Alert created successfully!')
         }
@@ -121,10 +146,10 @@ const CreateAlerts = () => {
         </SubmitButton>
       </FormBox>
       <Snackbar
-      open={open}
-      autoHideDuration={6000}
-      onClose={handleCloseSnackbar}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right'}}
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
         <Alert onClose={handleCloseSnackbar}>
           {snackbarMessage}

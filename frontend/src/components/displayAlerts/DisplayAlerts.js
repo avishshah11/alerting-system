@@ -38,7 +38,7 @@ const DisplayAlerts = () => {
 
         getData();
 
-    }, [fetchAlerts])
+    }, [loading])
 
     if (loading) {
         return (
@@ -57,6 +57,7 @@ const DisplayAlerts = () => {
                             <TableCell><Typography variant="h6">Message</Typography></TableCell>
                             <TableCell><Typography variant="h6">Severity</Typography></TableCell>
                             <TableCell><Typography variant="h6">Time</Typography></TableCell>
+                            <TableCell><Typography variant="h6">Ip Address</Typography></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -74,6 +75,7 @@ const DisplayAlerts = () => {
                                     />
                                 </TableCell>
                                 <TableCell>{new Date(row.createdAt).toLocaleString()}</TableCell>
+                                <TableCell>{row.ip}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

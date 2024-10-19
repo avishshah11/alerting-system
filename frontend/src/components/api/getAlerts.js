@@ -21,3 +21,20 @@ export const getAlerts = async () => {
         throw error;
     }
 };
+
+export const getIpfunction = async () => {
+
+    let publicIp = 'https://api.ipify.org';
+
+    try {
+        const response = await fetch(publicIp, {
+            method: 'GET'
+        }) 
+        
+        const ipResult = await response.json()
+
+        return ipResult
+    } catch (error) {
+        throw error
+    }
+};

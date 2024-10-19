@@ -10,8 +10,12 @@ const AlertSchema = mongoose.Schema(
       type: String,
       required: [true, "Please select the severity"],
     },
+    ip: {
+      type: String
+    }
   },
   { timestamps: true }
+
 );
 
 
